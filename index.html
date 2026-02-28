@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Macedonia Global Methodist Church — Louisa, VA</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    --navy: #1a2744;
+    --gold: #c9a84c;
+    --cream: #faf8f4;
+    --warm-white: #f5f0e8;
+    --text: #2c2c2c;
+    --muted: #6b7280;
+  }
+
+  body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(26,39,68,0.95); backdrop-filter: blur(12px);
+    padding: 0 40px; display: flex; align-items: center; justify-content: space-between;
+    height: 70px; border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-brand { display: flex; align-items: center; gap: 12px; }
+  .nav-cross { font-size: 28px; color: var(--gold); font-weight: 300; }
+  .nav-name { color: #fff; font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; letter-spacing: 0.5px; }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; letter-spacing: 0.3px; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta { background: var(--gold); color: var(--navy); padding: 10px 24px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; letter-spacing: 0.5px; transition: all 0.2s; }
+  .nav-cta:hover { background: #d4b35a; transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    height: 100vh; display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(160deg, #1a2744 0%, #2a3d66 40%, #1f3054 100%);
+    position: relative; overflow: hidden; text-align: center;
+  }
+  .hero::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 30% 20%, rgba(201,168,76,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 80%, rgba(201,168,76,0.05) 0%, transparent 50%);
+  }
+  .hero-content { position: relative; z-index: 2; max-width: 700px; padding: 0 20px; }
+  .hero-cross { font-size: 48px; color: var(--gold); margin-bottom: 24px; opacity: 0.9; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: 56px; color: #fff; font-weight: 700; line-height: 1.15; margin-bottom: 16px; }
+  .hero h1 span { color: var(--gold); }
+  .hero .tagline { font-size: 20px; color: rgba(255,255,255,0.7); font-weight: 300; margin-bottom: 12px; letter-spacing: 1px; }
+  .hero .verse { font-size: 15px; color: rgba(255,255,255,0.45); font-style: italic; margin-bottom: 36px; }
+  .hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  .btn-primary { background: var(--gold); color: var(--navy); padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+  .btn-primary:hover { background: #d4b35a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.3); }
+  .btn-outline { border: 1.5px solid rgba(255,255,255,0.3); color: #fff; padding: 14px 32px; border-radius: 8px; font-size: 15px; font-weight: 500; text-decoration: none; transition: all 0.2s; }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* SERVICES STRIP */
+  .services-strip {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    background: var(--navy); color: #fff;
+  }
+  .service-item { padding: 40px 32px; text-align: center; border-right: 1px solid rgba(255,255,255,0.06); }
+  .service-item:last-child { border-right: none; }
+  .service-icon { font-size: 32px; margin-bottom: 12px; }
+  .service-label { font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+  .service-time { font-size: 16px; font-weight: 400; color: rgba(255,255,255,0.8); }
+
+  /* SECTION */
+  section { padding: 100px 40px; }
+  .section-inner { max-width: 1000px; margin: 0 auto; }
+  .section-label { font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 20px; }
+  .section-text { font-size: 17px; line-height: 1.8; color: var(--muted); max-width: 680px; }
+
+  /* ABOUT */
+  .about { background: var(--cream); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .about-img { background: var(--navy); border-radius: 16px; height: 380px; display: flex; align-items: center; justify-content: center; }
+  .about-img span { font-size: 80px; opacity: 0.3; }
+
+  /* MISSION / VISION */
+  .mission { background: #fff; }
+  .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+  .mv-card { background: var(--cream); border-radius: 16px; padding: 40px; border-left: 4px solid var(--gold); }
+  .mv-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--navy); margin-bottom: 14px; }
+  .mv-card p { font-size: 15px; line-height: 1.7; color: var(--muted); }
+
+  /* QUOTE */
+  .quote-section { background: var(--navy); text-align: center; padding: 80px 40px; }
+  .quote-text { font-family: 'Playfair Display', serif; font-size: 26px; color: #fff; font-style: italic; line-height: 1.6; max-width: 700px; margin: 0 auto 16px; font-weight: 400; }
+  .quote-attr { font-size: 14px; color: var(--gold); font-weight: 500; }
+
+  /* VISIT */
+  .visit { background: var(--cream); }
+  .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .visit-info h3 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--navy); margin-bottom: 16px; }
+  .visit-detail { display: flex; gap: 12px; margin-bottom: 16px; align-items: start; }
+  .visit-detail .icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .visit-detail .label { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 2px; }
+  .visit-detail .value { font-size: 15px; color: var(--text); line-height: 1.5; }
+  .map-placeholder { background: var(--navy); border-radius: 16px; height: 340px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .map-placeholder iframe { width: 100%; height: 100%; border: 0; border-radius: 16px; }
+
+  /* FOOTER */
+  footer { background: var(--navy); color: rgba(255,255,255,0.5); padding: 40px; text-align: center; font-size: 13px; }
+  footer .church-name { color: var(--gold); font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 8px; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 36px; }
+    .services-strip { grid-template-columns: 1fr; }
+    .about-grid, .mv-grid, .visit-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    section { padding: 60px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">
+    <span class="nav-cross">✝</span>
+    <span class="nav-name">Macedonia Global Methodist</span>
+  </div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#mission">Our Faith</a>
+    <a href="#visit">Visit</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#visit" class="nav-cta">JOIN US SUNDAY</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-cross">✝</div>
+    <p class="tagline">EVERYONE IS WELCOME</p>
+    <h1>Macedonia Global <span>Methodist</span> Church</h1>
+    <p class="verse">"Welcome one another, therefore, just as Christ has welcomed you, for the glory of God." — Romans 15:7</p>
+    <div class="hero-btns">
+      <a href="#visit" class="btn-primary">Plan Your Visit</a>
+      <a href="#about" class="btn-outline">Learn More</a>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES STRIP -->
+<div class="services-strip">
+  <div class="service-item">
+    <div class="service-icon">📖</div>
+    <div class="service-label">Sunday School</div>
+    <div class="service-time">Sundays at 9:00 AM</div>
+  </div>
+  <div class="service-item">
+    <div class="service-icon">⛪</div>
+    <div class="service-label">Worship Service</div>
+    <div class="service-time">Sundays at 10:00 AM</div>
+  </div>
+  <div class="service-item">
+    <div class="service-icon">🤝</div>
+    <div class="service-label">Fellowship</div>
+    <div class="service-time">All Are Welcome</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div>
+        <div class="section-label">Our Story</div>
+        <div class="section-title">Rooted in Faith Since 1832</div>
+        <div class="section-text">
+          On April 9, 1832, Wade and Marie Mills donated land specifically for the building of a church for worship. Since that day, Macedonia has been a beacon of faith, love, and community in Louisa County.
+          <br><br>
+          Now a Global Methodist Church, we remain committed to the Lordship of Jesus Christ, the inspiration and authority of the Scriptures, and the work of the Holy Spirit in conveying God's truth and grace to all people.
+        </div>
+      </div>
+      <div class="about-img">
+        <span>⛪</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION & VISION -->
+<section class="mission" id="mission">
+  <div class="section-inner">
+    <div class="section-label">Our Faith</div>
+    <div class="section-title">What We Believe</div>
+    <div class="mv-grid">
+      <div class="mv-card">
+        <h3>Our Mission</h3>
+        <p>To make disciples of Jesus Christ who worship passionately, love extravagantly, and witness boldly. Supported by fervent prayers, faithful discernment, and a sure hope for the future.</p>
+      </div>
+      <div class="mv-card">
+        <h3>Our Vision</h3>
+        <p>To join God in a journey of bringing new life, reconciliation, and the presence of Christ to all people — and to helping each person reflect the character of Christ.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <div class="quote-text">"Do all the good you can, by all the means you can, in all the ways you can, in all the places you can, at all the times you can, to all the people you can, as long as you ever can."</div>
+  <div class="quote-attr">— John Wesley</div>
+</div>
+
+<!-- VISIT -->
+<section class="visit" id="visit">
+  <div class="section-inner">
+    <div class="visit-grid">
+      <div class="visit-info">
+        <div class="section-label">Plan Your Visit</div>
+        <div class="section-title" style="font-size:32px">Come Worship With Us</div>
+        <br>
+        <div class="visit-detail">
+          <div class="icon">📍</div>
+          <div>
+            <div class="label">Address</div>
+            <div class="value">17 Byrd Mill Road<br>Louisa, VA 23093</div>
+          </div>
+        </div>
+        <div class="visit-detail">
+          <div class="icon">🕐</div>
+          <div>
+            <div class="label">Sunday Services</div>
+            <div class="value">Sunday School — 9:00 AM<br>Worship Service — 10:00 AM</div>
+          </div>
+        </div>
+        <div class="visit-detail">
+          <div class="icon">📞</div>
+          <div>
+            <div class="label">Contact</div>
+            <div class="value">(540) 967-3970<br>macedoniaglobalmethodistchurch@gmail.com</div>
+          </div>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3145.2!2d-78.0!3d38.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b462!2sMacedonia+Global+Methodist+Church!5e0!3m2!1sen!2sus" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="church-name">Macedonia Global Methodist Church</div>
+  <p>17 Byrd Mill Road, Louisa, VA 23093 · (540) 967-3970</p>
+  <p style="margin-top:12px; font-size:11px; opacity:0.5">© 2026 Macedonia Global Methodist Church. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
